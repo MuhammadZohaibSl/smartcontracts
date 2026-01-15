@@ -1,86 +1,244 @@
-# Solana Coin Transfer
+# 🌟 Solana Coin Transfer
 
-A blockchain coin transaction app built with **Solana** (Rust/Anchor) and **React Native** for Android.
+A complete Solana-based cryptocurrency transfer solution featuring a **React Native mobile app** with **Phantom wallet integration** and an **Anchor smart contract** deployed on Solana Devnet.
 
-## Project Structure
+![Solana](https://img.shields.io/badge/Solana-Devnet-9945FF?style=for-the-badge&logo=solana)
+![React Native](https://img.shields.io/badge/React_Native-0.81-61DAFB?style=for-the-badge&logo=react)
+![Expo](https://img.shields.io/badge/Expo-54-000020?style=for-the-badge&logo=expo)
+![Anchor](https://img.shields.io/badge/Anchor-0.32.1-blue?style=for-the-badge)
+
+---
+
+## 📋 Table of Contents
+
+- [Features](#-features)
+- [Project Structure](#-project-structure)
+- [Tech Stack](#-tech-stack)
+- [Getting Started](#-getting-started)
+- [Mobile App](#-mobile-app)
+- [Solana Program](#-solana-program)
+- [Configuration](#-configuration)
+- [License](#-license)
+
+---
+
+## ✨ Features
+
+### Mobile App
+- 🔐 **Phantom Wallet Integration** - Connect via deep linking
+- 💰 **Balance Display** - Real-time SOL balance with auto-refresh
+- 📤 **Send Transactions** - Transfer SOL to any Solana address
+- 📜 **Transaction History** - Track all your transfers
+- 💧 **Devnet Airdrop** - Request test SOL from the faucet
+- 🎨 **Premium UI** - Glassmorphism design with smooth animations
+
+### Solana Program
+- ⚡ **Fast Transfers** - Native SOL transfers on Solana blockchain
+- 🔒 **Secure** - Built with Anchor framework
+- 📊 **State Tracking** - Optional transfer statistics
+- ✅ **Validated** - Input validation and error handling
+
+---
+
+## 📁 Project Structure
 
 ```
 smartcontracts/
-├── solana-program/                    # Anchor smart contract
-│   └── programs/coin_transfer/src/
-│       ├── lib.rs                     # Program entry point
-│       ├── instructions.rs            # Instruction handlers
-│       ├── state.rs                   # Account structures
-│       └── errors.rs                  # Custom errors
+├── mobile-app/                 # React Native Expo App
+│   ├── App.tsx                 # Main app component
+│   ├── src/
+│   │   ├── components/         # UI Components
+│   │   │   ├── WalletConnect.tsx
+│   │   │   ├── SendTransaction.tsx
+│   │   │   ├── balance/
+│   │   │   ├── transaction/
+│   │   │   └── common/         # Button, Card, Input
+│   │   ├── hooks/              # Custom React hooks
+│   │   │   ├── useWallet.ts    # Phantom wallet integration
+│   │   │   ├── useBalance.ts   # TanStack Query balance hook
+│   │   │   └── useSolana.ts    # Solana utilities
+│   │   ├── config/             # App configuration
+│   │   ├── context/            # React contexts
+│   │   ├── store/              # Zustand state management
+│   │   └── services/           # API services
+│   └── package.json
 │
-└── mobile-app/                        # React Native (Android)
-    ├── App.tsx
-    └── src/
-        ├── components/
-        └── hooks/useSolana.ts         # Phantom wallet integration
+├── solana-program/             # Anchor Smart Contract
+│   ├── programs/coin_transfer/
+│   │   └── src/
+│   │       ├── lib.rs          # Program entry point
+│   │       ├── instructions.rs # Transfer handlers
+│   │       ├── state.rs        # Account structures
+│   │       └── errors.rs       # Custom errors
+│   ├── Anchor.toml             # Anchor configuration
+│   └── Cargo.toml
+│
+└── README.md
 ```
 
-## Features
+---
 
-- ✅ **Phantom Wallet** - Connect via Mobile Wallet Adapter
-- ✅ **View Balance** - Real-time SOL balance
-- ✅ **Send SOL** - Transfer to any Solana address
-- ✅ **Devnet Faucet** - Request test SOL
-- ✅ **Android Only** - Optimized for Android devices
+## 🛠 Tech Stack
 
-## Tech Stack
-
-| Component | Technology |
-|-----------|------------|
-| Smart Contract | Rust + Anchor Framework |
-| Mobile App | React Native + Expo |
-| Wallet | Phantom (via MWA) |
-| Network | Solana Devnet |
-
-## Prerequisites
-
-- **Rust** + [Solana CLI](https://docs.solana.com/cli/install-solana-cli-tools)
-- **Anchor** - `cargo install --git https://github.com/coral-xyz/anchor avm --locked`
-- **Node.js 18+** and npm
-- **Android Studio** with emulator or physical device
-- **Phantom Wallet** app installed on Android device
-
-## Getting Started
+### Mobile App
+| Technology | Purpose |
+|------------|---------|
+| **React Native 0.81** | Cross-platform mobile framework |
+| **Expo 54** | Development and build tooling |
+| **TypeScript** | Type-safe development |
+| **Zustand** | Lightweight state management |
+| **TanStack Query** | Data fetching and caching |
+| **@solana/web3.js** | Solana blockchain interaction |
 
 ### Solana Program
+| Technology | Purpose |
+|------------|---------|
+| **Rust** | Smart contract language |
+| **Anchor 0.32.1** | Solana development framework |
+| **Solana Devnet** | Test network deployment |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **Node.js** v18+
+- **Android Studio** (for Android development)
+- **Phantom Wallet** installed on your mobile device
+- **Rust** and **Anchor CLI** (for smart contract development)
+
+### Quick Start
 
 ```bash
-cd solana-program
+# Clone the repository
+git clone https://github.com/MuhammadZohaibSl/smartcontracts.git
+cd smartcontracts
+
+# Setup mobile app
+cd mobile-app
 npm install
-anchor build
-anchor test                            # Run tests
-anchor deploy --provider.cluster devnet # Deploy to devnet
+npx expo start --clear
+
+# Scan QR code with Expo Go app
 ```
 
-### Mobile App (Android)
+---
+
+## 📱 Mobile App
+
+### Running the App
 
 ```bash
 cd mobile-app
+
+# Install dependencies
 npm install
-npm run android                        # Start on Android
+
+# Start development server
+npx expo start --clear
+
+# Run on Android
+npx expo run:android
 ```
 
-## Usage
+### Available Scripts
 
-1. **Install Phantom** wallet on your Android device
-2. **Switch to Devnet** in Phantom settings (Settings → Developer Settings → Change Network)
-3. **Launch the app** and tap "Open Phantom"
-4. **Approve connection** in Phantom
-5. **Get test SOL** using the "Get Devnet SOL" button
-6. **Send SOL** to any address
+| Script | Description |
+|--------|-------------|
+| `npm start` | Start Expo development server |
+| `npm run android` | Run on Android device/emulator |
+| `npm run build:android` | Build production APK with EAS |
+| `npm run prebuild` | Generate native Android project |
 
-## Phantom Browser Extension
+### Key Components
 
-If you have Phantom in your browser:
-1. The mobile app connects to the **Phantom mobile app**, not the browser extension
-2. Your browser Phantom and mobile Phantom are **separate wallets** unless you import the same seed phrase
-3. To use the same wallet, export your seed phrase from browser Phantom and import it in mobile Phantom
+- **WalletConnect** - Phantom wallet connection via deep linking
+- **Balance** - Displays SOL balance with refresh functionality
+- **SendTransaction** - Form to send SOL with amount validation
+- **TransactionHistory** - List of recent transactions
 
-## License
+---
 
-MIT
+## ⚡ Solana Program
+
+### Program ID
+```
+HFE4phQSrBXbNakK2ddAcPGmo5Tm5C9z8difCcf4Cjgq
+```
+
+### Instructions
+
+| Instruction | Description |
+|-------------|-------------|
+| `initialize` | Initialize program state (one-time setup) |
+| `transfer_sol` | Transfer SOL from sender to recipient |
+| `get_balance` | Query account balance |
+
+### Building & Deploying
+
+```bash
+cd solana-program
+
+# Build the program
+anchor build
+
+# Deploy to devnet
+anchor deploy --provider.cluster devnet
+
+# Run tests
+anchor test
+```
+
+---
+
+## ⚙️ Configuration
+
+### Environment Variables
+
+Create a `.env` file in the `mobile-app` directory:
+
+```env
+# Network Configuration
+EXPO_PUBLIC_CLUSTER=devnet
+
+# Program ID
+EXPO_PUBLIC_PROGRAM_ID=HFE4phQSrBXbNakK2ddAcPGmo5Tm5C9z8difCcf4Cjgq
+
+# App Identity
+EXPO_PUBLIC_APP_NAME=Solana Coin Transfer
+EXPO_PUBLIC_APP_URI=https://solanacointransfer.app
+
+# UI Configuration
+EXPO_PUBLIC_BALANCE_REFRESH_INTERVAL=30000
+EXPO_PUBLIC_TRANSACTION_TIMEOUT=60000
+```
+
+### Network Options
+
+| Cluster | Description |
+|---------|-------------|
+| `devnet` | Solana test network (default) |
+| `testnet` | Public test network |
+| `mainnet-beta` | Production network |
+| `localnet` | Local validator (localhost:8899) |
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+**Muhammad Zohaib**
+
+- GitHub: [@MuhammadZohaibSl](https://github.com/MuhammadZohaibSl)
+
+---
+
+<p align="center">
+  Built with ❤️ on Solana
+</p>
