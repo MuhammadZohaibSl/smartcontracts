@@ -1,0 +1,56 @@
+# ============================================================================
+# Solana Program - Git Ignore
+# ============================================================================
+
+# Rust build artifacts
+/target/
+**/*.rs.bk
+Cargo.lock
+
+# Solana build outputs
+/deploy/
+*.so
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Keypairs and secrets (NEVER commit these!)
+*.json
+!Cargo.json
+/keypairs/
+/keys/
+*-keypair.json
+*_keypair.json
+id.json
+
+# Test artifacts
+/test-ledger/
+.anchor/
+
+# Logs
+*.log
+logs/
+
+# Debug
+*.pdb
+
+# Coverage
+*.profraw
+*.profdata
+coverage/

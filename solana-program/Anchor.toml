@@ -1,0 +1,22 @@
+[features]
+seeds = false
+skip-lint = false
+
+[programs.localnet]
+coin_transfer = "HFE4phQSrBXbNakK2ddAcPGmo5Tm5C9z8difCcf4Cjgq"
+
+[programs.devnet]
+coin_transfer = "HFE4phQSrBXbNakK2ddAcPGmo5Tm5C9z8difCcf4Cjgq"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "devnet"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
+
+[toolchain]
+anchor_version = "0.32.1"

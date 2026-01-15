@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "Solana Coin Transfer",
+    "slug": "solana-coin-transfer",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "scheme": "solanacointransfer",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "android": {
+      "package": "com.solanacointransfer.app",
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "solanacointransfer"
+            }
+          ],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ]
+    },
+    "plugins": [],
+    "extra": {
+      "phantomAppUrl": "https://phantom.app",
+      "solanaCluster": "devnet"
+    }
+  }
+}
